@@ -1,0 +1,19 @@
+<p>
+  <input type="text" [(ngModel)]="username">
+</p>
+<div>Username: {{ username }}</div>
+<input type="button" value="Reset" [disabled]="username.length <= 0" (click)="onReset()"/>
+
+<hr/>
+
+<input type="button" (click)="onToggleDisplay()" value="Toggle display"/>
+<p *ngIf="!isDisplayed">
+  Secret password = "Sp0t"
+</p>
+
+<div 
+    *ngFor="let click of clicksWithTimestamps"
+    [ngStyle]="{backgroundColor: getBackgroundColor()}"
+    [ngClass]="{whiteTimestamps: getColor()}">
+  {{click}}
+</div>
